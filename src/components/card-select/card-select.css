@@ -1,0 +1,11 @@
+.card__select {
+  margin-bottom: 5px;
+  padding: 5px;
+  width: 100%;
+
+  border: none;
+  border-radius: 5px;
+  outline: none;
+
+  font-size: 18px;
+}

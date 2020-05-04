@@ -1,0 +1,53 @@
+.card {
+  width: 282px;
+  padding: 12px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  background: #EBECF0;
+  border-radius: 10px;
+}
+
+.card__title {
+  font-size: 18px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.card-list {
+  margin: 15px 0;
+
+  list-style: none;
+
+  font-size: 18px;
+  line-height: 21px;
+}
+
+.card__action {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+
+  font-size: 18px;
+
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.card__add-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+}
+
+.card__action:hover {
+  background: #FFFFFF;
+}
+
+.card__action:disabled {
+  background: none;
+  cursor: default;
+  opacity: 0.3;
+}
