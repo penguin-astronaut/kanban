@@ -40,7 +40,7 @@ export default class BacklogCard extends Component {
   saveTasks = () => {
     const {taskTitle} = this.state;
 
-    if (taskTitle < 1) {
+    if (taskTitle.length < 1) {
       return;
     }
 
