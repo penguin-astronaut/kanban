@@ -27,6 +27,12 @@ function withSelect(View, title) {
       })
     }
 
+    onActionBlurHandler = (e) => {
+      this.setState({
+        isShowSelect: false
+      })
+    }
+
     render() {
       const { items, selectItems } = this.props;
       const { isShowSelect} = this.state;
@@ -39,7 +45,9 @@ function withSelect(View, title) {
       }
 
       const taskSelect =
-        <CardSelect onChange={this.onActionChangeHandler}>
+        <CardSelect
+          onChange={this.onActionChangeHandler}
+          onBlur={this.onActionBlurHandler}>
           {selectItems.map(({id, title}) => <option key={id} value={id}>{title}</option>)}
         </CardSelect>;
 
