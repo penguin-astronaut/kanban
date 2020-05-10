@@ -44,7 +44,7 @@ export default class Select extends Component {
 
     return (
       <div className="select" tabIndex="0" onBlur={onBlur}>
-        <div className={previewClass} onClick={this.toggleList}>Select item</div>
+        <div className={previewClass} onClick={this.toggleList}>Select item ...</div>
         <ul className={listClass} onClick={this.onItemSelected}>
           {items}
         </ul>

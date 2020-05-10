@@ -10,9 +10,10 @@
   margin-bottom: 7px;
 
   font-size: 18px;
-
+  font-style: italic;
+  font-weight: 500;
   cursor: pointer;
-  background: #FFFFFF;
+  background: #dcd8d8;
   border-radius: 5px;
 }
 
