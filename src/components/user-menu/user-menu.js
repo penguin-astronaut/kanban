@@ -6,7 +6,8 @@ import avatar from './user-avatar.png';
 
 export default class userMenu extends Component {
   state = {
-    show: false
+    show: false,
+    login: true
   }
 
   menuToggle = () => {
@@ -19,13 +20,41 @@ export default class userMenu extends Component {
 
   render() {
 
-    const { show } = this.state;
+    const { show, login } = this.state;
     let arrowClass = 'user-menu__arrow';
     let dropdownClass = 'user__dropdown';
+    let listItems = null;
 
     if (show) {
       arrowClass += " user-menu__arrow--rotate";
       dropdownClass += " user__dropdown--show";
+    }
+
+    if (login) {
+      listItems = (
+        <>
+          <li className="user-menu-list__item">
+            Profile
+          </li>
+          <li className="user-menu-list__item">
+            Settings
+          </li>
+          <li className="user-menu-list__item">
+            Logout
+          </li>
+        </>
+      )
+    } else {
+      listItems = (
+        <>
+          <li className="user-menu-list__item">
+            Login
+          </li>
+          <li className="user-menu-list__item">
+            Register
+          </li>
+        </>
+      )
     }
 
     return (
@@ -36,12 +65,7 @@ export default class userMenu extends Component {
         </div>
         <div className={dropdownClass}>
           <ul className="user-menu-list">
-            <li className="user-menu-list__item">
-              logIn
-            </li>
-            <li className="user-menu-list__item">
-              logOut
-            </li>
+            {listItems}
           </ul>
         </div>
       </div>
