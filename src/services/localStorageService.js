@@ -28,12 +28,17 @@ export default class LocalStorageService {
     return  tasks.filter(({type}) => type === 'finished')
   }
 
+  filterByType = (type) => {
+    const tasks = JSON.parse(localStorage.getItem('tasks')) ?? [];
+    return tasks.filter(item => item.type === type)
+  }
+
   addBacklog = (title) => {
     const task = {
       id: this._getId(),
       date: this._getDate(),
       title,
-      desc: 'description',
+      desc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cupiditates non Epicuri divisione finiebat, sed sua satietate. Quam nemo umquam voluptatem appellavit, appellat; Ubi ut eam caperet aut quando?',
       type: 'backlog'
     }
 
@@ -62,6 +67,8 @@ export default class LocalStorageService {
 
   _getDate() {
     const now = new Date();
-    return`${now.getHours()}:${now.getMinutes() <10} ${now.getDate()}.${now.getMonth()}.${now.getFullYear()}`
+    const minutes = now.getMinutes() < 10 ? "0" + now.getMinutes() : now.getMinutes();
+    const month = now.getMonth() < 10 ? "0" + now.getMonth() : now.getMonth();
+    return`${now.getHours()}:${minutes} ${now.getDate()}.${month}.${now.getFullYear()}`
   }
 }

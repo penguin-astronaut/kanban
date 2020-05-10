@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import CardItem from "../card-item";
 import Select from "../select";
 
-function withSelect(View, title) {
+function withSelect(View, title, link) {
   return class extends Component {
     state = {
       isShowSelect: false,
@@ -50,7 +50,8 @@ function withSelect(View, title) {
           actionComponent={taskSelect}
           isShowAction={isShowSelect}
           showAction={this.showAction}
-          title={title}>
+          title={title}
+          link={link}>
           { listContent }
         </View>)
     }

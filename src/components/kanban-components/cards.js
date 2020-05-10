@@ -1,9 +1,9 @@
 import Card from "../card";
 import withSelect from "../hoc-helpers/withSelect";
 
-const ReadyCard = withSelect(Card, "Ready");
-const InProgressCard = withSelect(Card, "In Progress");
-const FinishedCard = withSelect(Card, "Finished");
+const ReadyCard = withSelect(Card, "Ready", "ready");
+const InProgressCard = withSelect(Card, "In Progress", "in_progress");
+const FinishedCard = withSelect(Card, "Finished", "finishes");
 
 export {
   ReadyCard,

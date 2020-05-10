@@ -1,14 +1,16 @@
 import React, {Component} from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import {BacklogCard, FinishedCard, InProgressCard, ReadyCard} from '../kanban-components';
-
-import LocalStorageService from "../../services/localStorageService";
-
+import TasksList from "../tasks-list";
 import Header from "../header";
 import Footer from "../footer";
 
+import LocalStorageService from "../../services/localStorageService";
+
+
+
 import "./app.css";
-import Select from "../select";
 
 export default class App extends Component {
   lsService = new LocalStorageService();
@@ -80,14 +82,25 @@ export default class App extends Component {
     const { backlog, inProgress, ready, finished } = this.state;
     return (
       <div className="app">
-        <Header/>
-        <div className="board">
-          <BacklogCard addTask={this.addBacklog} items={backlog} />
-          <ReadyCard addTask={this.addReady} items={ready} selectItems={backlog}/>
-          <InProgressCard addTask={this.addInProgress} items={inProgress} selectItems={ready}/>
-          <FinishedCard addTask={this.addFinished} items={finished} selectItems={inProgress}/>
-        </div>
-        <Footer active={backlog.length} finished={finished.length} name="Vadim" />
+        <Router>
+          <Header/>
+          <div className="board">
+            <Route path="/" exact>
+                <BacklogCard addTask={this.addBacklog} items={backlog} />
+                <ReadyCard addTask={this.addReady} items={ready} selectItems={backlog}/>
+                <InProgressCard addTask={this.addInProgress} items={inProgress} selectItems={ready}/>
+                <FinishedCard addTask={this.addFinished} items={finished} selectItems={inProgress}/>
+            </Route>
+            <Route path="/:type"
+              render={ ({match}) => {
+                const { type } = match.params;
+                return <TasksList type={type}/>;
+              }}
+            />
+          </div>
+          <Footer active={backlog.length} finished={finished.length} name="Vadim" />
+        </Router>
+
       </div>
     )
   }

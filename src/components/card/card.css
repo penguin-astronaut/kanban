@@ -51,3 +51,12 @@
   cursor: default;
   opacity: 0.3;
 }
+
+.card__link {
+  color: #000000;
+  text-decoration: none;
+}
+
+.card__link:hover {
+  color: #0079BF;
+}

@@ -74,7 +74,8 @@ export default class BacklogCard extends Component {
         actionComponent={taskInput}
         isShowAction={isShowInput}
         showAction={this.showInput}
-        title="Backlog">
+        title="Backlog"
+        link="backlog">
         { listContent }
       </Card>)
   }
