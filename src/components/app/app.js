@@ -8,6 +8,7 @@ import Header from "../header";
 import Footer from "../footer";
 
 import "./app.css";
+import Select from "../select";
 
 export default class App extends Component {
   lsService = new LocalStorageService();

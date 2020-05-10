@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import CardItem from "../card-item";
-import CardSelect from "../card-select";
+import Select from "../select";
 
 function withSelect(View, title) {
   return class extends Component {
@@ -14,13 +14,7 @@ function withSelect(View, title) {
       })
     }
 
-    onActionChangeHandler = (e) => {
-      const val = e.target.value;
-
-      if (!val) {
-        return;
-      }
-
+    onActionChangeHandler = (val) => {
       this.props.addTask(val);
       this.setState({
         isShowSelect: false
@@ -45,11 +39,11 @@ function withSelect(View, title) {
       }
 
       const taskSelect =
-        <CardSelect
+        <Select
           onChange={this.onActionChangeHandler}
-          onBlur={this.onActionBlurHandler}>
-          {selectItems.map(({id, title}) => <option key={id} value={id}>{title}</option>)}
-        </CardSelect>;
+          onBlur={this.onActionBlurHandler}
+          data={selectItems}
+        />
 
       return (
         <View
